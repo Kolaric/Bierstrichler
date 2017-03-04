@@ -1,0 +1,19 @@
+{
+  "name": "bierstrichler",
+  "version": "0.1.0",
+  "description": "Eine App zum Bierstricheln",
+  "main": "index.js",
+  "scripts": {
+    "test": "tes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kolaric/Bierstrichler.git"
+  },
+  "author": "bs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kolaric/Bierstrichler/issues"
+  },
+  "homepage": "https://github.com/Kolaric/Bierstrichler#readme"
+}
