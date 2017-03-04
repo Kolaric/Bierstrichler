@@ -5,7 +5,7 @@ export class UserListService {
                 name: "stefan"
             },
             {
-                name: "hans"
+                name: "Hans"
             }
         ]
     }

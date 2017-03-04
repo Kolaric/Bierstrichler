@@ -1,4 +1,4 @@
-import { User } from './userlist.service';
+import { User, UserListService } from './userlist.service';
 import { Component } from '@angular/core'
 
 @Component({
@@ -7,13 +7,13 @@ import { Component } from '@angular/core'
     <ul>
 <li *ngFor="let user of users">{{user.name}}</li>
     </ul>
-    `
+    `,
+    providers: [UserListService]
 })
 export class UserList {
     title: string = "Hello World"
-    users: User[] = [{
-        name: "Stefan"
-    }, {
-        name: "hans"
-    }]
+    users: User[]
+    constructor(userlist: UserListService) {
+        this.users = userlist.getUsers();
+    }
 }

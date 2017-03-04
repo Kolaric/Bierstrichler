@@ -8,22 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var userlist_service_1 = require('./userlist.service');
 var core_1 = require('@angular/core');
 var UserList = (function () {
-    function UserList() {
+    function UserList(userlist) {
         this.title = "Hello World";
-        this.users = [{
-                name: "Stefan"
-            }, {
-                name: "hans"
-            }];
+        this.users = userlist.getUsers();
     }
     UserList = __decorate([
         core_1.Component({
             selector: 'users',
-            template: "<h3>{{ title }}</h3>\n    <ul>\n<li *ngFor=\"let user of users\">{{user.name}}</li>\n    </ul>\n    "
+            template: "<h3>{{ title }}</h3>\n    <ul>\n<li *ngFor=\"let user of users\">{{user.name}}</li>\n    </ul>\n    ",
+            providers: [userlist_service_1.UserListService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [userlist_service_1.UserListService])
     ], UserList);
     return UserList;
 }());

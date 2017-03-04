@@ -8,7 +8,7 @@ var UserListService = (function () {
                 name: "stefan"
             },
             {
-                name: "hans"
+                name: "Hans"
             }
         ];
     };
