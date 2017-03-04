@@ -8,22 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var userlist_component_1 = require('./userlist.component');
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var AppModule = (function () {
-    function AppModule() {
+var UserList = (function () {
+    function UserList() {
+        this.title = "Hello World";
+        this.users = [{
+                name: "Stefan"
+            }, {
+                name: "hans"
+            }];
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, userlist_component_1.UserList],
-            bootstrap: [app_component_1.AppComponent]
+    UserList = __decorate([
+        core_1.Component({
+            selector: 'users',
+            template: "<h3>{{ title }}</h3>\n    <ul>\n<li *ngFor=\"let user of users\">{{user.name}}</li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], UserList);
+    return UserList;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.UserList = UserList;
+//# sourceMappingURL=userlist.component.js.map
