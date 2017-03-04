@@ -4,7 +4,11 @@
     "description": "Eine App zum Bierstricheln",
     "main": "index.js",
     "scripts": {
-        "test": "tes"
+        "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+        "lite": "lite-server",
+        "tsc": "tsc",
+        "tsc:w": "tsc -w",
+        "typings": "typings"
     },
     "repository": {
         "type": "git",
