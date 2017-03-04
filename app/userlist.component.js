@@ -8,22 +8,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var userlist_service_1 = require('./userlist.service');
-var core_1 = require('@angular/core');
-var UserList = (function () {
-    function UserList(userlist) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments)).next());
+    });
+};
+const userlist_service_1 = require('./userlist.service');
+const core_1 = require('@angular/core');
+let UserList = class UserList {
+    constructor(userlist) {
+        this.userlist = userlist;
         this.title = "Hello World";
-        this.users = userlist.getUsers();
     }
-    UserList = __decorate([
-        core_1.Component({
-            selector: 'users',
-            template: "<h3>{{ title }}</h3>\n    <ul>\n<li *ngFor=\"let user of users\">{{user.name}}</li>\n    </ul>\n    ",
-            providers: [userlist_service_1.UserListService]
-        }), 
-        __metadata('design:paramtypes', [userlist_service_1.UserListService])
-    ], UserList);
-    return UserList;
-}());
+    ngOnInit() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                this.users = yield this.userlist.getUsers();
+            }
+            catch (error) {
+                this.users = [{ name: "Default" }];
+            }
+        });
+    }
+};
+UserList = __decorate([
+    core_1.Component({
+        selector: 'users',
+        template: `<h3>{{ title }}</h3>
+    <ul>
+<li *ngFor="let user of users">{{user.name}}</li>
+    </ul>
+    `,
+        providers: [userlist_service_1.UserListService]
+    }), 
+    __metadata('design:paramtypes', [userlist_service_1.UserListService])
+], UserList);
 exports.UserList = UserList;
 //# sourceMappingURL=userlist.component.js.map

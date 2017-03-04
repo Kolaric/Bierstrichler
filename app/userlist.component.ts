@@ -13,7 +13,15 @@ import { Component } from '@angular/core'
 export class UserList {
     title: string = "Hello World"
     users: User[]
-    constructor(userlist: UserListService) {
-        this.users = userlist.getUsers();
+    constructor(private userlist: UserListService) {
+        
+    }
+
+    async ngOnInit() {
+        try {
+            this.users = await this.userlist.getUsers()
+        } catch(error) {
+            this.users = [{name:"Default"}];
+        }
     }
 }
