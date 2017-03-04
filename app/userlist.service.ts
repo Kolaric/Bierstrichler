@@ -43,6 +43,9 @@ export interface User {
      */
     permissions: Permission
 
+    history: Change
+    lastlogin: Date
+    passwordhash: string
 }
 
 export enum Permission {
@@ -69,3 +72,26 @@ export interface Corpo {
 }
 
 type VStatusBase = "Fuchs" | "Aktiver" | "Inaktiv" | "AH" | "ZM" | "Verkehsgast"
+
+export interface Change {
+    id: number
+    itemid: number
+    item: Item
+    price: number
+    consumerid: number
+    consumer: User
+    vendorid: number
+    vendor: User
+    date: Date
+    amount: number
+}
+
+export interface Item {
+    id: number
+    name: string
+    amount: number
+    buyingPrice: number
+    sellingPrice: number
+    history: Change[]
+    description: string
+}
